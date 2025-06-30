@@ -16,20 +16,20 @@ tasks:
   
   # Download and prepare server.cfg / loadingscreen / database
   - action: download_github
-    src: https://github.com/NasaNodesOficial/txadmin-recipes/tree/main/esx
-    ref: legacy
+    src: https://github.com/NasaNodesOficial/txadmin-recipes/
+    ref: main
     dest: ./tmp/recipe
 
   - action: move_path
-    src: ./tmp/recipe/server.cfg
+    src: ./tmp/recipe/esx/server.cfg
     dest: ./server.cfg
 
   - action: move_path
-    src: ./tmp/recipe/ox.cfg
+    src: ./tmp/recipe/esx/ox.cfg
     dest: ./ox.cfg
 
   - action: move_path
-    src: ./tmp/recipe/esxLogo.png
+    src: ./tmp/recipe/esx/esxLogo.png
     dest: ./esxLogo.png
 
 
