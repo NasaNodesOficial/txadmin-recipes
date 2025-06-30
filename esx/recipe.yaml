@@ -16,7 +16,7 @@ tasks:
   
   # Download and prepare server.cfg / loadingscreen / database
   - action: download_github
-    src: https://github.com/esx-framework/esx-recipes
+    src: https://github.com/NasaNodesOficial/txadmin-recipes/esx
     ref: legacy
     dest: ./tmp/recipe
 
@@ -25,8 +25,13 @@ tasks:
     dest: ./server.cfg
 
   - action: move_path
+    src: ./tmp/recipe/ox.cfg
+    dest: ./ox.cfg
+
+  - action: move_path
     src: ./tmp/recipe/esxLogo.png
     dest: ./esxLogo.png
+
 
   # Download basic resources and ESX dependencies
 
@@ -44,6 +49,118 @@ tasks:
     src: https://github.com/esx-framework/ESX-Legacy-Addons/
     ref: main
     dest: ./tmp/addons
+
+  # Remove unecesary resources
+  # illenium-appearance
+  # core
+
+  - action: remove_path
+    path: ./tmp/core/[core]/esx_skin
+
+  - action: remove_path
+    path: ./tmp/core/[core]/skinchanger
+
+  #addons
+
+  - action: remove_path
+    path: ./tmp/addons/[esx_addons]/esx_barbershop
+
+  - action: remove_path
+    path: ./tmp/addons/[esx_addons]/esx_clotheshop
+
+  # ox_inventory
+  #addons
+
+  - action: remove_path
+    path: ./tmp/addons/[esx_addons]/esx_shops
+
+  - action: remove_path
+    path: ./tmp/addons/[esx_addons]/esx_weaponshop
+
+  # Download and prepare non ESX resources
+
+  # MAPS
+  - action: download_github
+    dest: ./resources/[defaultmaps]/hospital_map
+    ref: main
+    src: https://github.com/qbcore-framework/hospital_map
+
+  - action: download_github
+    dest: ./resources/[defaultmaps]/[prison_map]
+    ref: main
+    src: https://github.com/qbcore-framework/prison_map
+
+  #ox
+  - action: download_file
+    path: ./tmp/files/ox_lib.zip
+    url: https://github.com/communityox/ox_lib/releases/latest/download/ox_lib.zip
+
+  - action: unzip
+    dest: ./resources/[ox]
+    src: ./tmp/files/ox_lib.zip
+
+  - action: download_file
+    path: ./tmp/files/ox_target.zip
+    url: https://github.com/communityox/ox_target/releases/latest/download/ox_target.zip
+
+  - action: unzip
+    dest: ./resources/[ox]
+    src: ./tmp/files/ox_target.zip
+
+  - action: download_file
+    path: ./tmp/files/ox_inventory.zip
+    url: https://github.com/communityox/ox_inventory/releases/latest/download/ox_inventory.zip
+    
+  - action: unzip
+    dest: ./resources/[ox]
+    src: ./tmp/files/ox_inventory.zip
+
+  - action: download_file
+    path: ./tmp/files/ox_fuel.zip
+    url: https://github.com/communityox/ox_fuel/releases/latest/download/ox_fuel.zip
+    
+  - action: unzip
+    dest: ./resources/[ox]
+    src: ./tmp/files/ox_fuel.zip
+
+  - action: download_file
+    path: ./tmp/files/ox_doorlock.zip
+    url: https://github.com/communityox/ox_doorlock/releases/latest/download/ox_doorlock.zip
+    
+  - action: unzip
+    dest: ./resources/[ox]
+    src: ./tmp/files/ox_doorlock.zip
+
+
+  #illenium-appearance
+  - action: download_github
+    src: https://github.com/iLLeniumStudios/illenium-appearance
+    ref: main
+    dest: ./tmp/core/[core]/illenium-appearance
+
+
+  # Adjustements
+
+  - action: replace_string
+    file: ./resources/[ox]/ox_fuel/config.lua
+    search: 'ox_target = false,'
+    replace: 'ox_target = true,'
+
+  - action: write_file
+    file: ./tmp/core/[core]/illenium-appearance/fxmanifest.lua
+    append: true
+    data: |
+
+      provides { "esx_skin", "skinchanger" }
+
+  - action: query_database
+    file: ./tmp/core/[core]/illenium-appearance/sql/management_outfits.sql
+  - action: query_database
+    file: ./tmp/core/[core]/illenium-appearance/sql/player_outfit_codes.sql
+  - action: query_database
+    file: ./tmp/core/[core]/illenium-appearance/sql/player_outfits.sql
+  - action: query_database
+    file: ./tmp/core/[core]/illenium-appearance/sql/playerskins.sql
 
   - action: move_path
     src: ./tmp/core/[core]
@@ -70,6 +187,6 @@ tasks:
     dest: ./resources/[standalone]
     src: ./tmp/files/oxmysql.zip
 
-  ## Cleanup
+  # Cleanup
   - action: remove_path
     path: ./tmp
