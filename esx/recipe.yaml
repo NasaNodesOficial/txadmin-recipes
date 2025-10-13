@@ -1,8 +1,8 @@
 $engine: 3
 $onesync: on
-name: ESX Legacy
-author: ESX Framework
-description: The official recipe of the most popular FiveM RP framework, containing Jobs, Housing, Vehicles & more!
+name: ESX NasaNodes
+author: NasaNodes.es
+description: An unofficial recipe of the most popular FiveM RP framework, containing Jobs, Housing, Vehicles & more! (ESX)
 
 tasks:
   # Download default CFX resources
@@ -69,6 +69,11 @@ tasks:
     path: ./tmp/addons/[esx_addons]/esx_clotheshop
 
   # ox_inventory
+  #core
+  
+  - action: remove_path
+    path: ./tmp/core/[core]/esx_inventory
+    
   #addons
 
   - action: remove_path
