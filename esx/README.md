@@ -1,12 +1,25 @@
-<h1 align='center'>ESX Legacy Recipe</a></h1><p align='center'><b><a href='https://discord.esx-framework.org/'>Discord</a> - <a href='https://esx-framework.org/'>Website</a> - <a href='https://docs.esx-framework.org/legacy/installation'>Documentation</a></b></h5>
+<h1 align='center'>NasaNodes Recipe (ESX)</a></h1><p align='center'><b><a href='https://nasanodes.es/discord'>Discord</a> - <a href='https://nasanodes.es'>FiveM Hosting</a></b></h5>
 
-**ESX is the industry leading framework for creating servers on FiveM, with many official and community resources designed to utilise the tools provided here.**
+## 🚀 NasaNodes  
+If you're setting up a server or considering a hosting change, NasaNodes provides a ready-to-use environment for this type of setup with support and pre-configured systems.
 
-For a taste of what's available:
-- esx_identity: Enables character registration defining a players name, sex, height, and date of birth
-- esx_society: Allows job resources to register a society, gaining employee management, society funds, and more
-- esx_billing: Allows members of some societies to send fines or bills to other players
-- esx_vehicleshop: Allow players to purchase vehicles from a dealership, or setup society support for a player-managed dealership
-- esx_ambulancejob: Adds a death and respawn system while allowing players to work as EMS to heal and revive others
+## About this recipe  
+This recipe applies changes focused on integrating the CommunityOX ecosystem, adding new maps, and replacing the appearance system.
 
-Many more resources are included in this Recipe, or you can browse the [Cfx.re Releases board](https://forum.cfx.re/tag/esx) for more.
+## Main additions  
+- OX ecosystem (CommunityOX): `ox_lib`, `ox_target`, `ox_inventory`, `ox_fuel`, `ox_doorlock`  
+- Appearance system: `illenium-appearance` (replaces the classic system)  
+- Maps: `hospital_map` and `prison_map`  
+
+## Adjustments  
+- Full integration with OX  
+- `ox_target` enabled in `ox_fuel`  
+- Fix applied to `bob74_ipl` (Pillbox)  
+
+## Removed (summary)  
+- Old ESX skin, inventory, and shop scripts  
+
+## Notes  
+- Base: ESX Legacy  
+- Not an official recipe  
+- Modified by NasaNodes  
