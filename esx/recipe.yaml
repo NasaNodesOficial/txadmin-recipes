@@ -183,8 +183,8 @@ tasks:
   # pillbox fix
   - action: replace_string
     file: ./resources/[standalone]/bob74_ipl/client.lua
-    search: 'PillboxHospital.Enable(true)'
-    replace: 'PillboxHospital.Enable(false)'
+    search: '    PillboxHospital.Enable(true)'
+    replace: '    PillboxHospital.Enable(false)'
 
   - action: download_github
     src: https://github.com/AvarianKnight/pma-voice
