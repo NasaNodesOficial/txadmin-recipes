@@ -13,7 +13,7 @@ tasks:
     dest: ./resources/[cfx-default]
   - action: remove_path
     path: ./resources/[cfx-default]/[gameplay]/chat
-  
+
   # Download and prepare server.cfg / loadingscreen / database
   - action: download_github
     src: https://github.com/NasaNodesOficial/txadmin-recipes/
@@ -32,7 +32,6 @@ tasks:
     src: ./tmp/recipe/esx/esxLogo.png
     dest: ./esxLogo.png
 
-
   # Download basic resources and ESX dependencies
 
   - action: connect_database
@@ -49,6 +48,11 @@ tasks:
     src: https://github.com/esx-framework/ESX-Legacy-Addons/
     ref: main
     dest: ./tmp/addons
+
+  - action: download_github
+    src: https://github.com/Bob74/bob74_ipl
+    ref: master
+    dest: ./resources/[standalone]/bob74_ipl
 
   # Remove unecesary resources
   # illenium-appearance
@@ -70,10 +74,10 @@ tasks:
 
   # ox_inventory
   #core
-  
+
   - action: remove_path
     path: ./tmp/core/[core]/esx_inventory
-    
+
   #addons
 
   - action: remove_path
@@ -115,7 +119,7 @@ tasks:
   - action: download_file
     path: ./tmp/files/ox_inventory.zip
     url: https://github.com/communityox/ox_inventory/releases/latest/download/ox_inventory.zip
-    
+
   - action: unzip
     dest: ./resources/[ox]
     src: ./tmp/files/ox_inventory.zip
@@ -123,7 +127,7 @@ tasks:
   - action: download_file
     path: ./tmp/files/ox_fuel.zip
     url: https://github.com/communityox/ox_fuel/releases/latest/download/ox_fuel.zip
-    
+
   - action: unzip
     dest: ./resources/[ox]
     src: ./tmp/files/ox_fuel.zip
@@ -131,11 +135,17 @@ tasks:
   - action: download_file
     path: ./tmp/files/ox_doorlock.zip
     url: https://github.com/communityox/ox_doorlock/releases/latest/download/ox_doorlock.zip
-    
+
   - action: unzip
     dest: ./resources/[ox]
     src: ./tmp/files/ox_doorlock.zip
 
+  - action: query_database
+    file: /resources/[ox]/ox_doorlock/sql/ox_doorlock.sql
+
+  # Default MRPD Doors
+  - action: query_database
+    file: /resources/[ox]/ox_doorlock/sql/default.sql
 
   #illenium-appearance
   - action: download_github
@@ -143,13 +153,12 @@ tasks:
     ref: main
     dest: ./tmp/core/[core]/illenium-appearance
 
-
   # Adjustements
 
   - action: replace_string
     file: ./resources/[ox]/ox_fuel/config.lua
-    search: 'ox_target = false,'
-    replace: 'ox_target = true,'
+    search: "ox_target = false,"
+    replace: "ox_target = true,"
 
   - action: write_file
     file: ./tmp/core/[core]/illenium-appearance/fxmanifest.lua
@@ -176,17 +185,6 @@ tasks:
     dest: ./resources/[esx_addons]
 
   - action: download_github
-    src: https://github.com/Bob74/bob74_ipl
-    ref: master
-    dest: ./resources/[standalone]/bob74_ipl
-
-  # pillbox fix
-  - action: replace_string
-    file: ./resources/[standalone]/bob74_ipl/client.lua
-    search: '    PillboxHospital.Enable(true)'
-    replace: '    PillboxHospital.Enable(false)'
-
-  - action: download_github
     src: https://github.com/AvarianKnight/pma-voice
     ref: main
     dest: ./resources/[standalone]/pma-voice
@@ -197,6 +195,13 @@ tasks:
   - action: unzip
     dest: ./resources/[standalone]
     src: ./tmp/files/oxmysql.zip
+
+  # pillbox fix
+  - action: replace_string
+    mode: literal
+    file: ./resources/[standalone]/bob74_ipl/client.lua
+    search: "PillboxHospital\\.Enable\\(true\\)"
+    replace: "PillboxHospital.Enable(false)"
 
   # Cleanup
   - action: remove_path
