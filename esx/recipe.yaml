@@ -71,6 +71,9 @@ tasks:
 
   - action: remove_path
     path: ./tmp/addons/[esx_addons]/esx_clotheshop
+    
+  - action: remove_path
+    path: ./tmp/addons/[esx_addons]/esx_accessories
 
   # ox_inventory
   #core
