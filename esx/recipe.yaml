@@ -105,7 +105,7 @@ tasks:
   #ox
   - action: download_file
     path: ./tmp/files/ox_lib.zip
-    url: https://github.com/communityox/ox_lib/releases/latest/download/ox_lib.zip
+    url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
 
   - action: unzip
     dest: ./resources/[ox]
@@ -113,7 +113,7 @@ tasks:
 
   - action: download_file
     path: ./tmp/files/ox_target.zip
-    url: https://github.com/communityox/ox_target/releases/latest/download/ox_target.zip
+    url: https://github.com/overextended/ox_target/releases/latest/download/ox_target.zip
 
   - action: unzip
     dest: ./resources/[ox]
@@ -121,7 +121,7 @@ tasks:
 
   - action: download_file
     path: ./tmp/files/ox_inventory.zip
-    url: https://github.com/communityox/ox_inventory/releases/latest/download/ox_inventory.zip
+    url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
 
   - action: unzip
     dest: ./resources/[ox]
@@ -129,7 +129,7 @@ tasks:
 
   - action: download_file
     path: ./tmp/files/ox_fuel.zip
-    url: https://github.com/communityox/ox_fuel/releases/latest/download/ox_fuel.zip
+    url: https://github.com/overextended/ox_fuel/releases/latest/download/ox_fuel.zip
 
   - action: unzip
     dest: ./resources/[ox]
@@ -137,7 +137,7 @@ tasks:
 
   - action: download_file
     path: ./tmp/files/ox_doorlock.zip
-    url: https://github.com/communityox/ox_doorlock/releases/latest/download/ox_doorlock.zip
+    url: https://github.com/overextended/ox_doorlock/releases/latest/download/ox_doorlock.zip
 
   - action: unzip
     dest: ./resources/[ox]
